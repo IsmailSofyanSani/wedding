@@ -1,0 +1,318 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                   ALUR KERJA SISTEM UNDANGAN DIGITAL                     ║
+║                      Ranny & Sofyan Wedding 2027                         ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+  FASE 1: PERSIAPAN DATA
+═══════════════════════════════════════════════════════════════════════════
+
+    ┌─────────────────────┐
+    │  BUKA FILE          │
+    │  daftar-tamu.js     │
+    └──────────┬──────────┘
+               │
+               ▼
+    ┌─────────────────────┐
+    │  TAMBAH DATA TAMU   │
+    │  ├─ Nama Lengkap    │
+    │  └─ Kategori        │
+    └──────────┬──────────┘
+               │
+               ▼
+    ┌─────────────────────┐
+    │  SAVE FILE          │
+    └──────────┬──────────┘
+               │
+               ▼
+         DATA SIAP! ✓
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FASE 2: GENERATE LINK
+═══════════════════════════════════════════════════════════════════════════
+
+    ┌─────────────────────┐
+    │  BUKA BROWSER       │
+    │  generator-link.html│
+    └──────────┬──────────┘
+               │
+               ▼
+    ┌─────────────────────┐
+    │  PILIH TAMU         │◄───── Manual Input
+    │  dari Daftar        │       atau
+    └──────────┬──────────┘       Pilih dari List
+               │
+               ▼
+    ┌─────────────────────┐
+    │  KLIK GENERATE      │
+    │  ├─ Link Only       │
+    │  └─ Pesan WhatsApp  │
+    └──────────┬──────────┘
+               │
+               ├──────────────────┐
+               │                  │
+               ▼                  ▼
+    ┌──────────────┐   ┌──────────────────┐
+    │  COPY LINK   │   │  COPY PESAN WA   │
+    └──────┬───────┘   └─────────┬────────┘
+           │                     │
+           └──────────┬──────────┘
+                      │
+                      ▼
+              LINK SIAP KIRIM! ✓
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FASE 3: DISTRIBUSI (KIRIM KE TAMU)
+═══════════════════════════════════════════════════════════════════════════
+
+                    ┌─────────────┐
+                    │  LINK READY │
+                    └──────┬──────┘
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+    ┌──────────┐    ┌──────────┐    ┌──────────┐
+    │ WhatsApp │    │  Email   │    │   SMS    │
+    └────┬─────┘    └────┬─────┘    └────┬─────┘
+         │               │               │
+         │               │               │
+         └───────────────┴───────────────┘
+                         │
+                         ▼
+                  TAMU TERIMA! ✓
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FASE 4: TAMU BUKA UNDANGAN
+═══════════════════════════════════════════════════════════════════════════
+
+    ┌──────────────────────┐
+    │  TAMU KLIK LINK      │
+    │  index.html?to=Nama  │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  BROWSER BUKA        │
+    │  HALAMAN UNDANGAN    │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  JAVASCRIPT BACA     │
+    │  Parameter ?to=Nama  │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  NAMA OTOMATIS       │
+    │  TERISI DI UNDANGAN  │
+    │  "Kepada Yth. [Nama]"│
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  TAMU LIHAT          │
+    │  UNDANGAN PERSONAL   │
+    └──────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FASE 5: TAMU KONFIRMASI KEHADIRAN
+═══════════════════════════════════════════════════════════════════════════
+
+    ┌──────────────────────┐
+    │  TAMU ISI FORM RSVP  │
+    │  ├─ Nama             │
+    │  ├─ Kehadiran        │
+    │  ├─ Jumlah Tamu      │
+    │  └─ Ucapan           │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  KLIK KIRIM UCAPAN   │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  DATA DIKIRIM VIA    │
+    │  TELEGRAM BOT API    │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  NOTIFIKASI MASUK    │
+    │  KE GRUP TELEGRAM    │
+    │  "Tamu Undangan"     │
+    └──────────┬───────────┘
+               │
+               ▼
+    ┌──────────────────────┐
+    │  ANDA TERIMA         │
+    │  KONFIRMASI! ✓       │
+    └──────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+  BONUS: EXPORT & BACKUP
+═══════════════════════════════════════════════════════════════════════════
+
+    ┌──────────────────────┐
+    │  generator-link.html │
+    └──────────┬───────────┘
+               │
+               ├──────────────────┐
+               │                  │
+               ▼                  ▼
+    ┌──────────────────┐   ┌──────────────────┐
+    │  DOWNLOAD TXT    │   │  EXPORT CSV      │
+    │  Semua Link      │   │  Format Excel    │
+    └──────────────────┘   └──────────────────┘
+           │                        │
+           │                        │
+           └────────────┬───────────┘
+                        │
+                        ▼
+              ┌──────────────────┐
+              │  FILE TERSIMPAN  │
+              │  ├─ Backup       │
+              │  ├─ Dokumentasi  │
+              │  └─ Tracking     │
+              └──────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FLOW DIAGRAM: URL PARAMETER SYSTEM
+═══════════════════════════════════════════════════════════════════════════
+
+  INPUT                        PROCESS                      OUTPUT
+  ─────                        ───────                      ──────
+
+  "Bapak Ahmad"         →     encodeURIComponent()    →    "Bapak%20Ahmad"
+                              (di generator)
+
+                              ↓
+
+  URL Created:          →     index.html?to=Bapak%20Ahmad
+                              
+                              ↓
+
+  Browser Parse         →     URLSearchParams.get('to')
+                              
+                              ↓
+
+  Decode                →     decodeURIComponent()    →    "Bapak Ahmad"
+                              (di index.html)
+
+                              ↓
+
+  Display               →     document.getElementById()
+                              
+                              ↓
+
+  Result                →     "Kepada Yth. Bapak Ahmad"
+                              (muncul di undangan)
+
+
+═══════════════════════════════════════════════════════════════════════════
+  FILE STRUCTURE & RELATIONS
+═══════════════════════════════════════════════════════════════════════════
+
+  daftar-tamu.js ─────┐
+                      │
+                      ├──→ generator-link.html ─┐
+                      │                          │
+                      └──→ TEST-LINK.html        │
+                                                 │
+                                                 │ generate
+                                                 │
+                                                 ▼
+                      URL: index.html?to=NamaTamu
+                                                 │
+                                                 │
+                                                 ▼
+                              index.html (Undangan Utama)
+                                      │
+                                      │ references
+                                      │
+                                      ▼
+                                  assets/
+                                  ├─ photos
+                                  └─ music
+
+
+═══════════════════════════════════════════════════════════════════════════
+  DECISION TREE: MANA FILE YANG HARUS DIBUKA?
+═══════════════════════════════════════════════════════════════════════════
+
+                          START
+                            │
+                            ▼
+                    Mau apa sekarang?
+                            │
+          ┌─────────────────┼─────────────────┐
+          │                 │                 │
+          ▼                 ▼                 ▼
+      Tambah Tamu      Generate Link      Lihat Undangan
+          │                 │                 │
+          ▼                 ▼                 ▼
+  daftar-tamu.js    generator-link.html   index.html
+                            │
+                    ┌───────┴────────┐
+                    │                │
+                    ▼                ▼
+              Quick Test       Full Feature
+                    │                │
+                    ▼                ▼
+            TEST-LINK.html   (stay here)
+
+
+═══════════════════════════════════════════════════════════════════════════
+  CHECKLIST WORKFLOW
+═══════════════════════════════════════════════════════════════════════════
+
+  ☐ 1. Input data tamu ke daftar-tamu.js
+  ☐ 2. Buka generator-link.html
+  ☐ 3. Generate link untuk semua tamu
+  ☐ 4. Export backup (TXT/CSV)
+  ☐ 5. Test beberapa link di TEST-LINK.html
+  ☐ 6. Edit template WhatsApp (opsional)
+  ☐ 7. Kirim link ke tamu via WhatsApp/Email/SMS
+  ☐ 8. Setup Telegram bot untuk notifikasi RSVP
+  ☐ 9. Monitor konfirmasi kehadiran
+  ☐ 10. Undangan siap! 🎉
+
+
+═══════════════════════════════════════════════════════════════════════════
+  TIPS WORKFLOW EFISIEN
+═══════════════════════════════════════════════════════════════════════════
+
+  ✓ Kerjakan batch per kategori
+    - Hari 1: Input semua keluarga
+    - Hari 2: Input semua teman
+    - Hari 3: Input semua rekan kerja
+
+  ✓ Generate semua sekaligus
+    - Jangan generate satu-satu
+    - Gunakan export TXT/CSV
+
+  ✓ Kirim bertahap
+    - Minggu 1: Keluarga dekat
+    - Minggu 2: Teman & kerabat
+    - Minggu 3: Rekan kerja
+
+  ✓ Follow up
+    - H-7: Reminder ke yang belum konfirmasi
+    - H-3: Final reminder
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+                        🎉 SELAMAT BEKERJA! 🎉
+                    Semoga lancar sampai hari H! 💕
+
+═══════════════════════════════════════════════════════════════════════════

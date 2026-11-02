@@ -1,0 +1,125 @@
+========================================
+   CONTOH LINK UNDANGAN PERNIKAHAN
+   Ranny & Sofyan - 08 Januari 2027
+========================================
+
+📌 CARA MENGGUNAKAN:
+1. Buka file 'generator-link.html' di browser
+2. Pilih tamu dari daftar atau ketik manual
+3. Klik "Generate Link" atau "Generate Pesan WhatsApp"
+4. Copy dan kirim ke tamu
+
+========================================
+
+🔗 CONTOH FORMAT LINK:
+
+1. Untuk tamu bernama "Bapak Ahmad"
+   Link: index.html?to=Bapak%20Ahmad
+   
+   Hasil di undangan:
+   "Kepada Yth. Bapak Ahmad"
+
+2. Untuk tamu "Ibu Siti Nurhaliza"
+   Link: index.html?to=Ibu%20Siti%20Nurhaliza
+   
+   Hasil di undangan:
+   "Kepada Yth. Ibu Siti Nurhaliza"
+
+3. Untuk tamu "Keluarga Besar Pak Hendra"
+   Link: index.html?to=Keluarga%20Besar%20Pak%20Hendra
+   
+   Hasil di undangan:
+   "Kepada Yth. Keluarga Besar Pak Hendra"
+
+========================================
+
+💬 CONTOH PESAN WHATSAPP:
+
+-----------------------------------------
+Assalamualaikum Warahmatullahi Wabarakatuh 🙏
+
+Kepada Yth.
+*Bapak Ahmad Rizki*
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
+
+*Ranny & Sofyan*
+📅 Kamis, 08 Januari 2027
+
+Untuk informasi lengkap acara, silakan buka undangan digital kami di:
+https://yoursite.com/index.html?to=Bapak%20Ahmad%20Rizki
+
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+
+Atas perhatian dan doa restunya, kami ucapkan terima kasih.
+
+Wassalamualaikum Warahmatullahi Wabarakatuh 🤲
+
+_Ranny & Sofyan_
+-----------------------------------------
+
+========================================
+
+🎯 TIPS PENTING:
+
+✅ Gunakan nama lengkap dengan sapaan:
+   - "Bapak/Ibu [Nama]"
+   - "Keluarga Besar [Nama]"
+   - "Dr./Drs. [Nama]"
+
+✅ Perhatikan penulisan:
+   - Spasi dalam link akan otomatis jadi %20
+   - Gunakan huruf kapital untuk nama yang tepat
+   - Gelar dan sapaan membuat lebih formal
+
+✅ Untuk keluarga:
+   - "Keluarga Bapak Ahmad"
+   - "Bapak Ahmad & Keluarga"
+   - Lebih efisien dari kirim satu per satu
+
+========================================
+
+🔧 CARA MENGEDIT PESAN:
+
+Buka file 'generator-link.html'
+Cari bagian:
+
+const WHATSAPP_TEMPLATE = (nama) => `
+[EDIT PESAN DI SINI]
+`;
+
+Edit sesuai keinginan Anda!
+
+========================================
+
+📊 EXPORT SEMUA LINK:
+
+Dari halaman generator-link.html:
+
+1. Klik "📥 Download Semua Link"
+   → Dapat file TXT berisi semua link
+
+2. Klik "📊 Export ke CSV"
+   → Dapat file Excel/spreadsheet
+
+========================================
+
+❓ TROUBLESHOOTING:
+
+Q: Nama tidak muncul di undangan?
+A: Pastikan link mengandung ?to=NamaTamu
+
+Q: Link tidak bisa dibuka?
+A: Cek apakah index.html ada di folder yang sama
+
+Q: Spasi dalam nama jadi aneh?
+A: Normal! Spasi otomatis jadi %20 di URL
+
+========================================
+
+Selamat menggunakan! 🎉💕
+
+Semoga pernikahan Ranny & Sofyan
+lancar dan penuh berkah!
+
+========================================

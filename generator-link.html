@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Link Undangan - Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #FBF6F0 0%, #F4E4E1 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #C9A9A6;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #6B5F5A;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2C2424;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #C9A9A6;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2C2424;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E5E5E5;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #C9A9A6;
+            box-shadow: 0 0 0 3px rgba(201, 169, 166, 0.1);
+        }
+        
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #C9A9A6, #8A9A7B);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 166, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #F4E4E1;
+            color: #2C2424;
+        }
+        
+        .btn-secondary:hover {
+            background: #E5D5D2;
+        }
+        
+        .link-result {
+            background: #F9F9F9;
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            word-break: break-all;
+        }
+        
+        .link-result.show {
+            display: block;
+        }
+        
+        .link-url {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #C9A9A6;
+            color: #2C2424;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .guest-list {
+            max-height: 500px;
+            overflow-y: auto;
+            border: 2px solid #E5E5E5;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .guest-item {
+            background: #F9F9F9;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #C9A9A6;
+        }
+        
+        .guest-info {
+            flex: 1;
+        }
+        
+        .guest-name {
+            font-weight: 600;
+            color: #2C2424;
+            margin-bottom: 4px;
+        }
+        
+        .guest-category {
+            font-size: 12px;
+            color: #6B5F5A;
+            background: #E5E5E5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .guest-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #C9A9A6, #8A9A7B);
+            color: white;
+            padding: 24px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .alert {
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-info {
+            background: #E3F2FD;
+            color: #1565C0;
+            border-left: 4px solid #1976D2;
+        }
+        
+        .alert-success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            border-left: 4px solid #388E3C;
+        }
+        
+        .copy-btn {
+            cursor: pointer;
+            padding: 8px 16px;
+            background: #8A9A7B;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #6B7B5C;
+        }
+        
+        .whatsapp-preview {
+            background: #E8F5E9;
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #25D366;
+        }
+        
+        .whatsapp-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2C2424;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Generator Link Undangan</h1>
+        <p class="subtitle">Kelola dan generate link undangan pernikahan untuk tamu Anda</p>
+        
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalGuests">0</div>
+                <div class="stat-label">Total Tamu</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalFamily">0</div>
+                <div class="stat-label">Keluarga</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalFriends">0</div>
+                <div class="stat-label">Teman</div>
+            </div>
+        </div>
+        
+        <!-- Add New Guest Section -->
+        <div class="section">
+            <h2 class="section-title">➕ Tambah Tamu Baru</h2>
+            <div class="alert alert-info">
+                💡 <strong>Tips:</strong> Masukkan nama tamu sesuai dengan yang akan ditampilkan di undangan. Gunakan kategori untuk memudahkan pengelompokan.
+            </div>
+            
+            <div class="input-group">
+                <label for="newGuestName">Nama Tamu</label>
+                <input type="text" id="newGuestName" placeholder="Contoh: Bapak Ahmad Rizki" />
+            </div>
+            
+            <div class="input-group">
+                <label for="newGuestCategory">Kategori</label>
+                <select id="newGuestCategory">
+                    <option value="Keluarga">Keluarga</option>
+                    <option value="Teman">Teman</option>
+                    <option value="Kerja">Kerja</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary" onclick="addNewGuest()">Tambah Tamu</button>
+        </div>
+        
+        <!-- Generate Link Section -->
+        <div class="section">
+            <h2 class="section-title">🔗 Generate Link Undangan</h2>
+            
+            <div class="input-group">
+                <label for="guestName">Nama Tamu</label>
+                <input type="text" id="guestName" placeholder="Masukkan nama tamu atau pilih dari daftar" />
+            </div>
+            
+            <button class="btn btn-primary" onclick="generateLink()">Generate Link</button>
+            <button class="btn btn-secondary" onclick="generateWhatsApp()">Generate Pesan WhatsApp</button>
+            
+            <div class="link-result" id="linkResult">
+                <strong>Link Undangan:</strong>
+                <div class="link-url" id="generatedLink"></div>
+                <button class="copy-btn" onclick="copyLink()">📋 Copy Link</button>
+                
+                <div class="whatsapp-preview" id="whatsappPreview" style="display: none;">
+                    <strong>📱 Preview Pesan WhatsApp:</strong>
+                    <div class="whatsapp-text" id="whatsappText"></div>
+                    <button class="copy-btn" onclick="copyWhatsApp()">📋 Copy Pesan</button>
+                    <button class="copy-btn" onclick="openWhatsApp()" style="background: #25D366;">
+                        💬 Buka WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guest List Section -->
+        <div class="section">
+            <h2 class="section-title">👥 Daftar Tamu (Total: <span id="guestCount">0</span>)</h2>
+            
+            <div class="input-group">
+                <label>Filter Kategori</label>
+                <select id="filterCategory" onchange="displayGuestList()">
+                    <option value="Semua">Semua Kategori</option>
+                    <option value="Keluarga">Keluarga</option>
+                    <option value="Teman">Teman</option>
+                    <option value="Kerja">Kerja</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="generateAllLinks()">📥 Download Semua Link</button>
+            <button class="btn btn-secondary" onclick="exportToCSV()">📊 Export ke CSV</button>
+            
+            <div class="guest-list" id="guestList">
+                <!-- Guest items will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="./daftar-tamu.js"></script>
+    <script>
+        // Base URL - GANTI SESUAI DOMAIN ANDA
+        const BASE_URL = window.location.origin + window.location.pathname.replace('generator-link.html', 'index.html');
+        
+        let currentGeneratedLink = '';
+        let currentGeneratedMessage = '';
+        
+        // Template pesan WhatsApp - EDIT SESUAI KEINGINAN
+        const WHATSAPP_TEMPLATE = (nama) => `
+Assalamualaikum Warahmatullahi Wabarakatuh 🙏
+
+Kepada Yth.
+*${nama}*
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
+
+*Ranny & Sofyan*
+📅 Jum'at, 08 Januari 2027
+
+Untuk informasi lengkap acara, silakan buka undangan digital kami di:
+{{LINK}}
+
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+
+Atas perhatian dan doa restunya, kami ucapkan terima kasih.
+
+Wassalamualaikum Warahmatullahi Wabarakatuh 🤲
+
+_Ranny & Sofyan_
+        `.trim();
+        
+        // Load and display guest list on page load
+        function init() {
+            displayGuestList();
+            updateStats();
+        }
+        
+        // Update statistics
+        function updateStats() {
+            const total = daftarTamu.length;
+            const family = daftarTamu.filter(t => t.kategori === 'Keluarga').length;
+            const friends = daftarTamu.filter(t => t.kategori === 'Teman').length;
+            
+            document.getElementById('totalGuests').textContent = total;
+            document.getElementById('totalFamily').textContent = family;
+            document.getElementById('totalFriends').textContent = friends;
+            document.getElementById('guestCount').textContent = total;
+        }
+        
+        // Display guest list
+        function displayGuestList() {
+            const filter = document.getElementById('filterCategory').value;
+            const guestListDiv = document.getElementById('guestList');
+            
+            let filteredGuests = daftarTamu;
+            if (filter !== 'Semua') {
+                filteredGuests = daftarTamu.filter(guest => guest.kategori === filter);
+            }
+            
+            if (filteredGuests.length === 0) {
+                guestListDiv.innerHTML = '<p style="text-align: center; color: #6B5F5A; padding: 40px;">Belum ada tamu dalam kategori ini.</p>';
+                return;
+            }
+            
+            guestListDiv.innerHTML = filteredGuests.map((guest, index) => `
+                <div class="guest-item">
+                    <div class="guest-info">
+                        <div class="guest-name">${guest.nama}</div>
+                        <span class="guest-category">${guest.kategori}</span>
+                    </div>
+                    <div class="guest-actions">
+                        <button class="btn btn-small btn-primary" onclick="selectGuest('${guest.nama.replace(/'/g, "\\'")}')">
+                            Pilih
+                        </button>
+                        <button class="btn btn-small btn-secondary" onclick="generateLinkForGuest('${guest.nama.replace(/'/g, "\\'")}')">
+                            🔗 Link
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Add new guest
+        function addNewGuest() {
+            const name = document.getElementById('newGuestName').value.trim();
+            const category = document.getElementById('newGuestCategory').value;
+            
+            if (!name) {
+                alert('⚠️ Nama tamu tidak boleh kosong!');
+                return;
+            }
+            
+            // Check duplicate
+            const exists = daftarTamu.some(guest => guest.nama.toLowerCase() === name.toLowerCase());
+            if (exists) {
+                alert('⚠️ Tamu dengan nama ini sudah ada dalam daftar!');
+                return;
+            }
+            
+            // Add to array
+            daftarTamu.push({ nama: name, kategori: category });
+            
+            // Update UI
+            displayGuestList();
+            updateStats();
+            
+            // Clear form
+            document.getElementById('newGuestName').value = '';
+            document.getElementById('newGuestCategory').value = 'Keluarga';
+            
+            alert('✅ Tamu berhasil ditambahkan!\n\n⚠️ Catatan: Data hanya tersimpan sementara. Untuk menyimpan permanen, copy data ke file daftar-tamu.js');
+        }
+        
+        // Select guest from list
+        function selectGuest(name) {
+            document.getElementById('guestName').value = name;
+            document.getElementById('guestName').focus();
+            
+            // Scroll to generate section
+            document.querySelector('.section:nth-of-type(2)').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Generate link
+        function generateLink() {
+            const name = document.getElementById('guestName').value.trim();
+            
+            if (!name) {
+                alert('⚠️ Silakan masukkan nama tamu terlebih dahulu!');
+                return;
+            }
+            
+            const encodedName = encodeURIComponent(name);
+            const link = `${BASE_URL}?to=${encodedName}`;
+            
+            currentGeneratedLink = link;
+            
+            document.getElementById('generatedLink').textContent = link;
+            document.getElementById('linkResult').classList.add('show');
+            document.getElementById('whatsappPreview').style.display = 'none';
+        }
+        
+        // Generate WhatsApp message
+        function generateWhatsApp() {
+            const name = document.getElementById('guestName').value.trim();
+            
+            if (!name) {
+                alert('⚠️ Silakan masukkan nama tamu terlebih dahulu!');
+                return;
+            }
+            
+            const encodedName = encodeURIComponent(name);
+            const link = `${BASE_URL}?to=${encodedName}`;
+            const message = WHATSAPP_TEMPLATE(name).replace('{{LINK}}', link);
+            
+            currentGeneratedLink = link;
+            currentGeneratedMessage = message;
+            
+            document.getElementById('generatedLink').textContent = link;
+            document.getElementById('whatsappText').textContent = message;
+            document.getElementById('linkResult').classList.add('show');
+            document.getElementById('whatsappPreview').style.display = 'block';
+        }
+        
+        // Generate link for specific guest
+        function generateLinkForGuest(name) {
+            document.getElementById('guestName').value = name;
+            generateWhatsApp();
+            
+            // Scroll to result
+            document.getElementById('linkResult').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Copy link to clipboard
+        function copyLink() {
+            navigator.clipboard.writeText(currentGeneratedLink).then(() => {
+                alert('✅ Link berhasil dicopy ke clipboard!');
+            }).catch(() => {
+                alert('❌ Gagal copy link. Silakan copy manual.');
+            });
+        }
+        
+        // Copy WhatsApp message to clipboard
+        function copyWhatsApp() {
+            navigator.clipboard.writeText(currentGeneratedMessage).then(() => {
+                alert('✅ Pesan WhatsApp berhasil dicopy ke clipboard!');
+            }).catch(() => {
+                alert('❌ Gagal copy pesan. Silakan copy manual.');
+            });
+        }
+        
+        // Open WhatsApp
+        function openWhatsApp() {
+            const encodedMessage = encodeURIComponent(currentGeneratedMessage);
+            const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Generate all links and download as text file
+        function generateAllLinks() {
+            let content = '========== DAFTAR LINK UNDANGAN PERNIKAHAN ==========\n\n';
+            content += 'Ranny & Sofyan Wedding - 08 Januari 2027\n';
+            content += `Generated: ${new Date().toLocaleString('id-ID')}\n`;
+            content += '=' .repeat(60) + '\n\n';
+            
+            daftarTamu.forEach((guest, index) => {
+                const encodedName = encodeURIComponent(guest.nama);
+                const link = `${BASE_URL}?to=${encodedName}`;
+                content += `${index + 1}. ${guest.nama} (${guest.kategori})\n`;
+                content += `   ${link}\n\n`;
+            });
+            
+            // Download as text file
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Link-Undangan-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('✅ File berhasil didownload!');
+        }
+        
+        // Export to CSV
+        function exportToCSV() {
+            let csv = 'No,Nama,Kategori,Link Undangan\n';
+            
+            daftarTamu.forEach((guest, index) => {
+                const encodedName = encodeURIComponent(guest.nama);
+                const link = `${BASE_URL}?to=${encodedName}`;
+                csv += `${index + 1},"${guest.nama}","${guest.kategori}","${link}"\n`;
+            });
+            
+            // Download as CSV file
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Daftar-Tamu-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('✅ File CSV berhasil didownload!');
+        }
+        
+        // Initialize on page load
+        init();
+    </script>
+</body>
+</html>

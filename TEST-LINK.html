@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Link Undangan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #FBF6F0 0%, #F4E4E1 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #C9A9A6;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6B5F5A;
+            margin-bottom: 40px;
+        }
+        
+        .test-section {
+            background: #F9F9F9;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #C9A9A6;
+        }
+        
+        .test-title {
+            font-weight: 600;
+            color: #2C2424;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .test-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E5E5E5;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .test-button {
+            width: 100%;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #C9A9A6, #8A9A7B);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 166, 0.4);
+        }
+        
+        .result {
+            margin-top: 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6B5F5A;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .result-value {
+            font-size: 14px;
+            color: #2C2424;
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 2px solid #C9A9A6;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+        
+        .link-preview {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .link-preview button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-copy {
+            background: #8A9A7B;
+            color: white;
+        }
+        
+        .btn-open {
+            background: #C9A9A6;
+            color: white;
+        }
+        
+        .btn-copy:hover,
+        .btn-open:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+        }
+        
+        .quick-links {
+            background: #E3F2FD;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #1976D2;
+        }
+        
+        .quick-links h3 {
+            color: #1565C0;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .quick-links a {
+            display: block;
+            padding: 10px 16px;
+            background: white;
+            color: #1565C0;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .quick-links a:hover {
+            background: #1976D2;
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .info-box {
+            background: #FFF3CD;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #FFC107;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .emoji {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Link Undangan</h1>
+        <p class="subtitle">Tool untuk test dan generate link undangan dengan cepat</p>
+        
+        <!-- Test Generator -->
+        <div class="test-section">
+            <div class="test-title">📝 Generate Link Test</div>
+            <input 
+                type="text" 
+                class="test-input" 
+                id="testName" 
+                placeholder="Masukkan nama tamu (contoh: Bapak Ahmad Rizki)"
+                value="Bapak Ahmad Rizki"
+            />
+            <button class="test-button" onclick="generateTestLink()">
+                🔗 Generate Link
+            </button>
+            
+            <div class="result" id="result">
+                <div class="result-label">Link Undangan:</div>
+                <div class="result-value" id="generatedLink"></div>
+                
+                <div class="result-label">URL Parameter:</div>
+                <div class="result-value" id="urlParam"></div>
+                
+                <div class="result-label">Nama yang Akan Muncul:</div>
+                <div class="result-value" id="displayName"></div>
+                
+                <div class="link-preview">
+                    <button class="btn-copy" onclick="copyLink()">
+                        📋 Copy Link
+                    </button>
+                    <button class="btn-open" onclick="openLink()">
+                        🔍 Buka Undangan
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Test Links -->
+        <div class="quick-links">
+            <h3>🚀 Quick Test Links</h3>
+            <a href="index.html?to=Bapak Ahmad Rizki" target="_blank">
+                Test: Bapak Ahmad Rizki
+            </a>
+            <a href="index.html?to=Ibu Siti Nurhaliza" target="_blank">
+                Test: Ibu Siti Nurhaliza
+            </a>
+            <a href="index.html?to=Keluarga Besar Pak Hendra" target="_blank">
+                Test: Keluarga Besar Pak Hendra
+            </a>
+            <a href="index.html?to=Dr. Budi Santoso, S.Kom" target="_blank">
+                Test: Dr. Budi Santoso, S.Kom
+            </a>
+        </div>
+        
+        <!-- Info -->
+        <div class="info-box">
+            <strong>💡 Tips:</strong>
+            <ul style="margin-top: 8px; padding-left: 20px;">
+                <li>Link yang digenerate otomatis menggunakan encoding URL</li>
+                <li>Spasi akan berubah jadi <code>%20</code> - ini normal!</li>
+                <li>Nama akan muncul persis seperti yang Anda ketik</li>
+                <li>Klik "Buka Undangan" untuk melihat hasilnya langsung</li>
+            </ul>
+        </div>
+        
+        <!-- Navigation -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="generator-link.html" style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #C9A9A6, #8A9A7B); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; margin: 5px;">
+                🎯 Generator Lengkap
+            </a>
+            <a href="index.html" style="display: inline-block; padding: 14px 32px; background: white; color: #C9A9A6; text-decoration: none; border-radius: 50px; font-weight: 600; margin: 5px; border: 2px solid #C9A9A6;">
+                🏠 Lihat Undangan
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        let currentLink = '';
+        
+        function generateTestLink() {
+            const name = document.getElementById('testName').value.trim();
+            
+            if (!name) {
+                alert('⚠️ Silakan masukkan nama tamu terlebih dahulu!');
+                return;
+            }
+            
+            // Generate link
+            const encodedName = encodeURIComponent(name);
+            const baseUrl = window.location.href.replace('TEST-LINK.html', 'index.html');
+            const link = `${baseUrl}?to=${encodedName}`;
+            
+            currentLink = link;
+            
+            // Display results
+            document.getElementById('generatedLink').textContent = link;
+            document.getElementById('urlParam').textContent = `?to=${encodedName}`;
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('result').classList.add('show');
+        }
+        
+        function copyLink() {
+            if (!currentLink) {
+                alert('⚠️ Generate link terlebih dahulu!');
+                return;
+            }
+            
+            navigator.clipboard.writeText(currentLink).then(() => {
+                alert('✅ Link berhasil dicopy ke clipboard!');
+            }).catch(() => {
+                // Fallback method
+                const textarea = document.createElement('textarea');
+                textarea.value = currentLink;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ Link berhasil dicopy!');
+            });
+        }
+        
+        function openLink() {
+            if (!currentLink) {
+                alert('⚠️ Generate link terlebih dahulu!');
+                return;
+            }
+            
+            window.open(currentLink, '_blank');
+        }
+        
+        // Allow Enter key to generate
+        document.getElementById('testName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateTestLink();
+            }
+        });
+    </script>
+</body>
+</html>
