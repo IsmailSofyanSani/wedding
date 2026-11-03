@@ -1,0 +1,32 @@
+# Netlify Configuration
+# Config untuk undangan pernikahan
+
+[build]
+  publish = "."
+  
+# Redirect untuk file admin (block public access)
+[[redirects]]
+  from = "/generator-link.html"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/TEST-LINK.html"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/daftar-tamu.js"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Headers untuk security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
