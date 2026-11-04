@@ -1,0 +1,9 @@
+# Password protection untuk admin files
+/generator-link.html
+  Basic-Auth: admin:$apr1$hash$value
+  
+/TEST-LINK.html
+  Basic-Auth: admin:$apr1$hash$value
+  
+/daftar-tamu.js
+  Basic-Auth: admin:$apr1$hash$value
