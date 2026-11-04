@@ -1,8 +1,3 @@
-# Jangan deploy file-file ini ke Netlify (private admin tools)
-generator-link.html
-TEST-LINK.html
-daftar-tamu.js
-
 # Dokumentasi (opsional, bisa di-public atau tidak)
 *.md
 ALUR-KERJA.txt
