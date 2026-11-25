@@ -74,10 +74,7 @@ const daftarTamu = [
     
     // TEMAN MEMPELAI PRIA
     { nama: 'Ade', kategori: 'Teman Mempelai Pria' },
-    { nama: 'Adil', kategori: 'Teman Mempelai Pria' },
-    { nama: 'Iqbal', kategori: 'Teman Mempelai Pria' },
     { nama: 'Lilis', kategori: 'Teman Mempelai Pria' },
-    { nama: 'Ditha', kategori: 'Teman Mempelai Pria' },
     { nama: 'Reza', kategori: 'Teman Mempelai Pria' },
     { nama: 'Galuh', kategori: 'Teman Mempelai Pria' },
     { nama: 'Aldi', kategori: 'Teman Mempelai Pria' },
@@ -85,6 +82,21 @@ const daftarTamu = [
     { nama: 'Wasil', kategori: 'Teman Mempelai Pria' },
     { nama: 'Syahid', kategori: 'Teman Mempelai Pria' },
     { nama: 'Dedi', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Aida', kategori: 'Teman Mempelai Pria' },
+    { nama: 'iik', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Adil', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Humam', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Ricky', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Rahmat kacong', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Tam', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Azis', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Fahmi', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Iqbal', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Agus', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Rizka', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Fina', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Hafida', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Ditha', kategori: 'Teman Mempelai Pria' },
     
     // ========== TAMBAHKAN TAMU ANDA DI BAWAH INI ==========
     // Format: { nama: 'Nama Lengkap', kategori: 'Keluarga/Teman Mempelai Wanita/Kerja/Teman Mempelai Pria' },
