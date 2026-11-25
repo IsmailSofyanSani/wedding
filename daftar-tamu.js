@@ -87,7 +87,7 @@ const daftarTamu = [
     { nama: 'Adil', kategori: 'Teman Mempelai Pria' },
     { nama: 'Humam', kategori: 'Teman Mempelai Pria' },
     { nama: 'Ricky', kategori: 'Teman Mempelai Pria' },
-    { nama: 'Rahmat kacong', kategori: 'Teman Mempelai Pria' },
+    { nama: 'Rahmat', kategori: 'Teman Mempelai Pria' },
     { nama: 'Tam', kategori: 'Teman Mempelai Pria' },
     { nama: 'Azis', kategori: 'Teman Mempelai Pria' },
     { nama: 'Fahmi', kategori: 'Teman Mempelai Pria' },
