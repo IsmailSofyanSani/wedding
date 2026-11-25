@@ -343,7 +343,7 @@ function addToCalendar(type) {
     } else {
         title = 'Resepsi Pernikahan ' + CONFIG.groomShort + ' & ' + CONFIG.brideShort;
         date = '20270108';
-        time = '110000/150000';
+        time = '130000/170000';
         location = CONFIG.resepsiLocation;
     }
     
