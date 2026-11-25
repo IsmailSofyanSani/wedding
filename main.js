@@ -57,10 +57,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide cover dengan fade out
         cover.style.transition = 'opacity 0.8s ease-out';
         cover.style.opacity = '0';
+        cover.style.pointerEvents = 'none';
         
         setTimeout(() => {
             cover.style.display = 'none';
+            cover.style.visibility = 'hidden';
+            cover.classList.add('hidden');
+            
+            // Remove lock scroll dan reset body position
             document.body.classList.remove('lock-scroll');
+            document.body.style.position = 'relative';
+            document.body.style.height = 'auto';
+            document.body.style.overflow = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            
             mainContent.classList.add('visible');
             musicToggle.classList.remove('hidden');
             bottomNav.classList.remove('hidden');
@@ -82,22 +94,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ========== MUSIC TOGGLE ==========
-    let isPlaying = false;
     musicToggle.addEventListener('click', function() {
-        if (isPlaying) {
-            bgMusic.pause();
-            musicToggle.classList.remove('playing');
-            document.getElementById('musicIcon').textContent = '🔇';
+        if (bgMusic.paused) {
+            bgMusic.play().catch(err => {
+                console.log('Play prevented:', err);
+            });
         } else {
-            bgMusic.play();
-            musicToggle.classList.add('playing');
-            document.getElementById('musicIcon').textContent = '🔊';
+            bgMusic.pause();
         }
-        isPlaying = !isPlaying;
     });
     
-    bgMusic.addEventListener('play', () => { isPlaying = true; });
-    bgMusic.addEventListener('pause', () => { isPlaying = false; });
+    bgMusic.addEventListener('play', () => {
+        musicToggle.classList.add('playing');
+        document.getElementById('musicIcon').textContent = '🔊';
+    });
+    
+    bgMusic.addEventListener('pause', () => {
+        musicToggle.classList.remove('playing');
+        document.getElementById('musicIcon').textContent = '🔇';
+    });
     
     // ========== COUNTDOWN TIMER ==========
     function updateCountdown() {
@@ -416,6 +431,7 @@ function initBackgroundSlideshow() {
     
     // Create background container
     const bgContainer = document.createElement('div');
+    bgContainer.className = 'cover-bg-container';
     bgContainer.style.cssText = `
         position: absolute;
         top: 0;
@@ -428,6 +444,8 @@ function initBackgroundSlideshow() {
     // Create two image layers for crossfade
     const img1 = document.createElement('div');
     const img2 = document.createElement('div');
+    img1.className = 'cover-bg-layer';
+    img2.className = 'cover-bg-layer';
     
     const imgStyle = `
         position: absolute;
