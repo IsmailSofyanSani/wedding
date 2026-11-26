@@ -717,6 +717,10 @@
             margin-bottom: 48px;
         }
         
+        #countdown .countdown-title {
+            color: var(--text-primary);
+        }
+        
         #countdown .countdown-wrapper {
             background: rgba(255, 255, 255, 0.78);
         }
@@ -738,6 +742,17 @@
                 inset 0 1px 1px rgba(255, 255, 255, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: var(--transition);
+        }
+        
+        .countdown-title {
+            font-family: var(--font-serif);
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            font-weight: 600;
+            text-align: center;
         }
         
         .countdown-wrapper:hover {
@@ -1519,10 +1534,10 @@
         <!-- Countdown Section -->
         <section id="countdown">
             <div class="container">
-                <p class="section-title fade-up">Hitung Mundur</p>
                 <h2 class="section-heading fade-up">Menuju Hari Bahagia</h2>
                 
                 <div class="countdown-wrapper fade-up">
+                    <p class="countdown-title">HITUNG MUNDUR</p>
                     <div class="countdown-grid">
                         <div class="countdown-item">
                             <span class="countdown-value" id="days">00</span>
